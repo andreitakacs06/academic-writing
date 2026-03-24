@@ -4,7 +4,7 @@ using namespace std;
 
 int n, choice, type, dataType;
 
-// ==================== SORTING ALGORITHMS ====================
+// SORTING ALGORITHMS
 
 template <typename T>
 void bubblesort(T a[], int n) {
@@ -92,9 +92,9 @@ void heapsort(T a[], int n) {
     }
 }
 
-// ==================== DATA GENERATORS ====================
+// DATA GENERATORS
 
-// --- INT ---
+// INT
 void gen_int_random(int a[])        { for (int i = 0; i < n; i++) a[i] = rand() % 100000; }
 void gen_int_sorted(int a[])        { for (int i = 0; i < n; i++) a[i] = i; }
 void gen_int_reverse(int a[])       { for (int i = 0; i < n; i++) a[i] = n - i; }
@@ -109,7 +109,7 @@ void gen_int_half(int a[]) {
 }
 void gen_int_flat(int a[])          { for (int i = 0; i < n; i++) a[i] = rand() % 5; }
 
-// --- FLOAT ---
+// FLOAT
 float frand() { return (float)(rand() % 10000000) / 100.0f; }
 
 void gen_float_random(float a[])    { for (int i = 0; i < n; i++) a[i] = frand(); }
@@ -126,14 +126,13 @@ void gen_float_half(float a[]) {
 }
 void gen_float_flat(float a[])      { for (int i = 0; i < n; i++) a[i] = (float)(rand() % 5) * 1.1f; }
 
-// --- STRING ---
+// STRING
 string randStr(int len = 6) {
     string s(len, ' ');
     for (char &c : s) c = 'a' + rand() % 26;
     return s;
 }
 string indexToStr(int i) {
-    // zero-pads to 8 chars so lexicographic order == numeric order
     string s = to_string(i);
     return string(8 - s.size(), '0') + s;
 }
@@ -155,7 +154,7 @@ void gen_str_flat(string a[])       {
     for (int i = 0; i < n; i++) a[i] = pool[rand() % 5];
 }
 
-// ==================== RUN SORT ====================
+//RUN SORT
 
 template <typename T>
 void runSort(T a[]) {
@@ -169,7 +168,7 @@ void runSort(T a[]) {
     cout << "\nDuration: " << (float)duration / CLOCKS_PER_SEC << " seconds\n";
 }
 
-// ==================== MAIN ====================
+//MAIN
 
 int main() {
     srand(time(0));
